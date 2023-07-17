@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+  pgadmin:
+      image: dpage/pgadmin4:${PG_VERSION}
+      restart: always
+      networks:
+        - default
+        - postgres_network
+      environment:
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      ports:
+        - 8080:80
+
+  adminer:
+      image: adminer:${ADMINER_VERSION}
+      networks:
+        - default
+        - database_network
+        - moud-network
+      container_name: adminer_container
+      restart: always
+      ports:
+        - 8081:8080
+
+networks:
+  default:
+    name: db_explorer
+    external: false
+  database_network:
+    external: true
+  postgres_network:
+    external: true
+  moud-network:
+    external: true

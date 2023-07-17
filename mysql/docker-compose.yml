@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  database:
+    #container_name: mysql_container
+    hostname: mysql_host
+    image: mysql:${MYSQL_VERSION}
+    networks:
+      - default
+      - moud-network
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+  
+
+  test_service:
+    image: busybox:${BUSYBOX_VERSION}
+    command: sleep ${BUSYBOX_SLEEP}
+
+
+networks:
+  default:
+    name: database_network
+    external: false
+  moud-network:
+    external: true
+
+volumes:
+  mysql_data:
+    driver: local
+
+
+
+  
