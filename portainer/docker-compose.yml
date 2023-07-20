@@ -7,11 +7,16 @@ services:
     restart: always
     networks:
       - default
-    ports:
-      - 9000:9000
+      - nginx_network
+    #ports:
+      #- 9000:9000
+      #- 443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+    environment:
+      VIRTUAL_HOST: portainer.local.com
+      VIRTUAL_PORT: 9000
 
 volumes:
   portainer_data:
@@ -20,3 +25,5 @@ networks:
   default:
     name: portainer_network
     external: false
+  nginx_network:
+    external: true

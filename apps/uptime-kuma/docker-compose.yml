@@ -1,0 +1,27 @@
+#docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
+
+version: '3.8'
+
+services:
+
+  uptimekuma:
+    image: louislam/uptime-kuma:${UPTIME_VERSION}
+    restart: always
+    networks:
+      - default
+      - nginx_network
+    volumes:
+      - uptime-kuma:/app/data
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
+
+
+networks:
+  default:
+    external: false
+  nginx_network:
+    external: true
+
+volumes:
+  uptime-kuma:

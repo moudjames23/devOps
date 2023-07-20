@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  
+  leantime:
+    image: leantime/leantime:${LEANTIME_VERSION}
+    networks:
+      - default
+      - nginx_network
+      - leantime_net
+    environment:
+      LEAN_DB_HOST: ${LEANTIME_DB_HOST}
+      LEAN_DB_USER: ${MYSQL_USER}
+      LEAN_DB_PASSWORD: ${MYSQL_PASSWORD}
+      LEAN_DB_DATABASE: ${MYSQL_DATABASE}
+      VIRTUAL_HOST: ${LEANTIME_VIRTUAL_HOST}
+      VIRTUAL_PORT: ${LEANTIME_VIRTUAL_PORT}
+  
+  database:
+    image: mysql:${MYSQL_VERSION}
+    networks:
+      - default
+      - leantime_net
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+networks:
+  default:
+    external: false
+  nginx_network:
+    external: true
+  leantime_net:
+    external: false
+
+volumes:
+  mysql_data:

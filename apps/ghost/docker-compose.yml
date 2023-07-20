@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+
+  ghost:
+    image: ghost:${GHOST_VERSION}
+    restart: always
+    networks:
+      - default
+      - nginx_network
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
+      
+      database__client: ${DB_CLIENT}
+      database__connection__host: db
+      database__connection__user: ${DB_USER}
+      database__connection__password: ${DB_PASSWORD}
+      database__connection__database: ${DB_DATABASE_NAME}
+      # this url value is just an example, and is likely wrong for your environment!
+      url: http://localhost:8080
+      # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
+      #NODE_ENV: development
+
+  db:
+    image: mysql:${DB_VERSION}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+
+networks:
+  default:
+    name: ghost_network
+    external: false
+  nginx_network:
+    external: true

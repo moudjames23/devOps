@@ -1,0 +1,4 @@
+services:
+  busybox:
+    env_file:
+      - .dev.env

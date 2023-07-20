@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+    busybox:
+        image: busybox:${BUSYBOX_VERSION}
+        command: sleep ${BUSYBOX_SLEEP}
+        networks:
+            - default
+        
+
+networks:
+    default:
