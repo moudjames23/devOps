@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  
+  jenkins:
+    image: jenkins/jenkins:${JENKINS_VERSION}
+    container_name: jenkins
+    networks:
+      - default
+      - nginx_network
+    volumes:
+      - ${PWD}/data/jenkins:/var/jenkins_config
+      - ${PWD}/data/jenkins_data:/jenkins_home
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
+
+networks:
+  default:
+    name: jenkins_network
+    external: false
+  nginx_network:
+    external: true
+

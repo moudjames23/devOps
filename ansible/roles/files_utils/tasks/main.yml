@@ -1,0 +1,14 @@
+- name: Create folder
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "/root/Octa"
+
+- name: Delete directories
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - '/root/Devscom'
+    - '/root/moud'

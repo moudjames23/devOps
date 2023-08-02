@@ -1,0 +1,11 @@
+- name: Create Moud user
+  user:
+    name: Moud
+    group: docker
+    state: present
+
+- name: Create Octa user
+  user:
+    name: Octa
+    group: docker
+    state: present

@@ -1,0 +1,60 @@
+[2023-07-21 22:50:05] local.DEBUG: Get app triggered for: d95b56ce41a2e1ac4cecdd398defd7414407cc08  
+[2023-07-21 22:50:05] local.DEBUG: Download triggered for stdClass Object
+(
+    [appid] => d95b56ce41a2e1ac4cecdd398defd7414407cc08
+    [name] => Jenkins
+    [website] => https://jenkins.io
+    [license] => MIT License
+    [description] => Jenkins is an open source automation server with an unparalleled plugin ecosystem to support practically every tool as part of your delivery pipelines.
+    [enhanced] => 1
+    [tile_background] => light
+    [icon] => jenkins.svg
+    [sha] => 155914d502565db9da37b012f02c691a99c1485a
+    [class] => \App\SupportedApps\Jenkins\Jenkins
+)
+  
+[2023-07-21 22:50:15] local.DEBUG: Get app triggered for: 366c6646eedab83cc4b349f198424d2291cbfa76  
+[2023-07-21 22:50:15] local.DEBUG: Download triggered for stdClass Object
+(
+    [appid] => 366c6646eedab83cc4b349f198424d2291cbfa76
+    [name] => Uptime Kuma
+    [website] => https://uptime.kuma.pet
+    [license] => MIT License
+    [description] => It is a self-hosted monitoring tool like "Uptime Robot".
+    [enhanced] => 
+    [tile_background] => dark
+    [icon] => uptimekuma.svg
+    [sha] => 292e87cee7c6a9cdbb6708686bdcdfa471b32921
+    [class] => \App\SupportedApps\UptimeKuma\UptimeKuma
+)
+  
+[2023-07-21 22:50:23] local.DEBUG: Get app triggered for: 07b796b3a10eaa8b6f485ed2379187a39400b459  
+[2023-07-21 22:50:23] local.DEBUG: Download triggered for stdClass Object
+(
+    [appid] => 07b796b3a10eaa8b6f485ed2379187a39400b459
+    [name] => Portainer
+    [website] => https://portainer.io
+    [license] => zlib License
+    [description] => Portainer is a simple management solution for Docker. Easily manage your Docker hosts and Docker Swarm clusters via Portainer web user interface.
+    [enhanced] => 1
+    [tile_background] => dark
+    [icon] => portainer.svg
+    [sha] => 94a81b07f372894d0b6db212e2bb33681a1c839c
+    [class] => \App\SupportedApps\Portainer\Portainer
+)
+  
+[2023-07-21 22:50:58] local.DEBUG: Get app triggered for: 68b3ab5f7810a9984bd8f46d53de0abf35f613f9  
+[2023-07-21 22:50:58] local.DEBUG: Download triggered for stdClass Object
+(
+    [appid] => 68b3ab5f7810a9984bd8f46d53de0abf35f613f9
+    [name] => SonarQube
+    [website] => https://www.sonarqube.org
+    [license] => GNU Lesser General Public License v3.0 only
+    [description] => Catch bugs and vulnerabilities in your app, with thousands of automated Static Code Analysis rules.
+    [enhanced] => 
+    [tile_background] => dark
+    [icon] => sonarqube.png
+    [sha] => 811c048f13d093a651622d276e6cc8b8eecdb12a
+    [class] => \App\SupportedApps\SonarQube\SonarQube
+)
+  

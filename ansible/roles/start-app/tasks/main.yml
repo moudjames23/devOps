@@ -1,0 +1,17 @@
+- name: Stop apache2 service
+  service:
+    name: apache2
+    state: stopped
+  tags: start-app
+
+- name: "Run nginx"
+  community.docker.docker_compose:
+    project_src: /root/Octa/proxy-nginx
+    build: false
+  tags: start-app
+
+- name: "Run portainer"
+  community.docker.docker_compose:
+    project_src: /root/Octa/portainer
+    build: false
+  tags: start-app

@@ -1,0 +1,11 @@
+- name: digitalocean config
+  hosts: digitalocean
+  become: yes
+  gather_facts: true
+  roles:
+    - apache
+    - files_utils
+    - docker
+    - users_utils
+    - git_repo
+    - start-app

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION}
+    networks:
+      - default
+      - nginx_network
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
+      GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD}
+    volumes:
+      - ${PWD}/grafana_data:/var/lib/grafana
+    
+
+networks:
+  default:
+    external: false
+    name: grafana
+  nginx_network:
+    external: true
